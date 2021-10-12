@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:06:48 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/06/01 23:20:07 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/10/11 20:30:50 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,22 +32,22 @@ RE = rm -f
 all: $(NAME)
 
 $(NAME): $(SRC)
-	ar -rcs $(NAME) $(SRC)
+	@ar -rcs $(NAME) $(SRC)
 
 $(SRC): $(FILES)
-	$(CC) $(FLAGS) -c $(FILES)
+	@$(CC) $(FLAGS) -c $(FILES)
 
 bonus: $(BONUS_SRC)
-	ar -rcs $(NAME) $(BONUS_SRC)
+	@ar -rcs $(NAME) $(BONUS_SRC)
 
 $(BONUS_SRC): $(BONUS)
-	$(CC) $(FLAGS) -c $(BONUS)
+	@$(CC) $(FLAGS) -c $(BONUS)
 
 clean:
-	$(RM) $(SRC) $(BONUS_SRC)
+	@$(RM) $(SRC) $(BONUS_SRC)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 

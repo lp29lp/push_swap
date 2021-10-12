@@ -6,52 +6,65 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:19:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/10/09 20:09:38 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/10/11 22:00:48 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-TODO	()FREE STACK TWO POINTERS + ()TEST ARGUMENTS
-		!MAYBE STACK IN A STRUCT?
-*/
+#include "../include/push_swap.h"
 
-#include "./include/push_swap.h"
+static int	dora(char **get_size, char *numb, int **tmp, int info);
 
 int	main(int ac, char **av)
 {
-	int	i;
+	int	x;
+	int	len;
 	int **tmp;
+	int	n_actual;
 
-	if (ac < 1)
+	if (ac <= 1)
 	{
-		herror("Arguments invalid, need more");
-		return (0);
+		ft_putendl_fd("Need more arguments.", 1);
+		exit(1);
 	}
-	i = 0;
-	while (av[i] != NULL)
+	x = 1;
+	len = dora(av, NULL, tmp, 0);
+	while (av[x] != NULL)
 	{
-		stack[i][0] = ft_julius(av[i], stack);
-		if (tmp < 0)
-		{
-			herror("Numbers equals");
-			return (0);
-			free_stack();
-		}
-		i++;
+		n_actual = dora(NULL, av[x], tmp, x);
+		x++;
 	}
+	printf("len: %d\n", len);
 }
 
-int	julius(char numb, int **stack)
+static int	dora(char **get_size, char *numb, int **tmp, int info)
 {
-	int num;
-
-	num = ft_atoi(numb);
-	while (stack[i][0] != NULL)
+	int	x;
+	int	n_size;
+	int	num;
+	x = 0;
+	if (info == 0)
 	{
-		if (stack[i][0] == num)
-			return (-1);
-		else
-			i++;
+		while (get_size[x] != NULL)
+			x++;
+		tmp = (int **)malloc(sizeof(int *) * x);
+		return (x - 1);
 	}
-	return (num);
+	else
+	{
+		if (info != 1)
+		{
+			num = ft_atoi(numb);
+			while (tmp[x] < info)
+			{
+				if (tmp[x] == num)
+				{
+					ft_putendl_fd("Numbers equals.", 1);
+					exit(1);
+				}
+				x++;
+			}
+		}
+		tmp[info] = (int *)malloc(sizeof(int) * ft_strlen(numb));
+		
+	}
 }
