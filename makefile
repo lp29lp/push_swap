@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/10/11 20:29:48 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/04 19:23:25 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ P_LIBFT = ./include/libft
 
 LIBFT = $(P_LIBFT)/libft.a
 
-FILES = $(P_SRC)/main.c 
+FILES = $(P_SRC)/main.c $(P_UTILS)/utils_circular.c
 SRC = $(FILES:.c=.o)
 
 CC = clang

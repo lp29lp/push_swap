@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 t_node	*new_node(int numb)
 {
-	t_node	new;
+	t_node	*new;
 	new = (t_node *)malloc(sizeof(t_node));
 	new->next = NULL;
 	new->data = numb;
 	return (new);
 }
 
-int	check_list(t_node *node_bckp, int t_num)
+int	check_list(t_node *node_bckp, int t_num, t_ps *ps)
 {
 	t_node	*temp;
 	t_node	*head;
