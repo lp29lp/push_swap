@@ -5,90 +5,62 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 09:19:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/10/12 03:44:33 by lpaulo-d         ###   ########.fr       */
+/*   Created: 2021/12/03 23:51:03 by lpaulo-d          #+#    #+#             */
+/*   Updated: 2021/12/03 23:51:03 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	dora(char **get_size, char *numb, int **tmp, int info);
-static void	char_onlynumbers(char *number);
+static void	create_stack(t_node **node_bckp, char **av, t_ps *ps);
+static void	init_list(t_ps *ps);
 
-int	main(int ac, char **av)
+int	main(int ac, char **ag)
 {
-	int	x;
-	int	z;
-	int	len;
-	int **tmp;
-	int	numb;
-	int size;
+	t_ps	ps;//nao e a linked list as stacks ta la dentro mas n e t_node
 
 	if (ac <= 1)
-	{
-		ft_putendl_fd("Need more arguments.", 1);
-		exit(EXIT_FAILURE);
-	}
-	x = 1;
-	z = 0;
-	len = dora(av, NULL, tmp, -1);
-	tmp = (int **)malloc(sizeof(int *) * len);
-	if (!tmp)
-		exit(EXIT_FAILURE);
-	while (av[x] != NULL)
-	{
-		size = (int)ft_strlen(av[x]);
-		tmp[z] = (int *)malloc(sizeof(int *) * size);
-		if (!tmp[z])
-			exit(EXIT_FAILURE);
-		tmp[z][0] = dora(NULL, av[x], tmp, z);
-		x++;
-		z++;
-	}
+		return (EXIT_SUCCESS);
+	init_list(&ps);
+	create_stack(&ps.stack_a, av, &ps)
+	check_list(&ps);
 }
 
-static int	dora(char **get_size, char *numb, int **tmp, int info)
+static void	create_stack(t_node **node_bckp, char **av, t_ps *ps)
 {
-	int	x;
-	int	n_size;
-	int	num;
-	x = 0;
-	if (info == -1)
+	t_node	temp;
+	t_node	head;
+	int		i;
+	int		t_num;
+
+	head = *node_bckp;
+	temp = *node_bckp;
+	i = 1
+	while (av[i] != NULL)
 	{
-		while (get_size[x] != NULL)
-			x++;
-		return (x - 1);
-	}
-	else
-	{
-		char_onlynumbers(numb);
-		num = ft_atoi(numb);
-		while (x <= info)
+		t_num = ft_atoi(av[i])
+		if (t_num == NULL)
+			return (0);
+		if (ft_isdigit(t_num) && !(temp == node_bckp))
 		{
-			if (tmp[x][0] == num)
-			{
-				ft_putendl_fd("Numbers equals.", 1);
-				exit(EXIT_FAILURE);
-			}
-			x++;
+			temp->next = new_node(t_num);
+			temp = temp->next;
 		}
-		return (num);
-	}
-}
-
-static void	char_onlynumbers(char *number)
-{
-	int	x;
-
-	x = 0;
-	while (number[x] != '\0')
-	{
-		if (number[x] >= '0' && number[x] <= '9')
-			x++;
+		else if (ft_isdigit(t_num) && temp == node)
+		{
+			node_bckp->data = t_num;
+			node_bckp->next = NULL;
+		}
 		else
-		{
-			ft_putendl_fd("Arguments invalid, use numbers.", 1);
-			exit(EXIT_FAILURE);
-		}
+			return (0);
+		i++;
+		check_list(*node_bckp,t_num);
 	}
 }
+
+static void	init_list(t_ps *ps)
+{
+	ps->stack_a = new_node(0);
+	ps->stack_b = new_node(0);
+}
+
