@@ -6,12 +6,12 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 13:12:04 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/06/01 22:20:19 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/04 23:55:14 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 int	ft_atoi(const char *nptr)
 {
 	long			result;
