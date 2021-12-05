@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/05 01:37:40 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/05 16:42:28 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_ps
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
+	t_node	*last;
 	int		size_stack_a;
 	int		size_stack_b;
 	int		movements;
@@ -40,9 +41,11 @@ int		main(int ac, char **ag);
 int		ft_isdigitChar(char *c);
 void	move_sa(t_ps *ps);
 void	move_sb(t_ps *ps);
-void    aux_ss(t_node **node);
+void	aux_ss(t_node **node);
 void	move_ss(t_ps *ps);
-
-
+void	move_ra(t_ps *ps);
+void	move_rb(t_ps *ps);
+void	rotate(t_node **node);
+void	move_rr(t_ps *ps);
 
 #endif

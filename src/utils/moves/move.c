@@ -53,3 +53,17 @@ void	move_ss(t_ps *ps)
 	write(1, "ss\n",3);
 	ps->movements++;
 }
+
+void	move_ra(t_ps *ps)
+{
+	rotate(&ps->stack_a);
+	write(1, "ra\n", 3);
+	ps->movements++;
+}
+
+void	move_rb(t_ps *ps)
+{
+	rotate(&ps->stack_b);
+	write(1, "rb\n", 3);
+	ps->movements++;
+}

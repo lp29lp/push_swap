@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_utils.c                                       :+:      :+:    :+:   */
+/*   move_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 01:25:48 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/05 01:25:48 by lpaulo-d         ###   ########.fr       */
+/*   Created: 2021/12/05 14:33:12 by lpaulo-d          #+#    #+#             */
+/*   Updated: 2021/12/05 14:33:12 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/push_swap.h"
 
-void	aux_ss(t_node **node)
+void	move_rr(t_ps *ps)
 {
-	t_node	*tmp;
-	t_node	*aux;
-
-	tmp = new_node(0);
-	aux = *node;
-	tmp->data = aux->data;
-	aux->data = aux->next->data;
-	aux->next->data = tmp->data;
-}
-
-void	rotate(t_node **node)
-{
-	t_node	*temp;
-	t_node	*aux;
-	t_node	*last;
-
-	aux = (*node)->next;
-	temp = aux;
-	last = *node;
-	last->next = NULL;
-	while (aux->next->next)
-		aux = aux->next;
-	aux->next = last;
-	*node = temp;
+	rotate(&ps->stack_a);
+	rotate(&ps->stack_b);
+	write(1, "rr\n", 3);
+	ps->movements++;
 }

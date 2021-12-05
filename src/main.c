@@ -14,23 +14,26 @@
 
 static int	create_stack(t_node **node_bckp, char **av, t_ps *ps);
 static void	init_list(t_ps *ps);
-static void	free_stack(t_ps *ps,int value);
+static void	free_stack(t_ps *ps);
 int	checkAv(char *av);
 
 int	main(int ac, char **av)
 {
+	int x = 0;
 	t_ps	ps;
 	t_node	*aux;
-	if (ac <= 1)
+	if (ac <= 2)
 		exit(1);
 	init_list(&ps);
 	create_stack(&ps.stack_a, av, &ps);
-	while (ps.stack_a->next != NULL)
-	{
-		printf("stack(a) = %d\n",ps.stack_a->data);
-		ps.stack_a = ps.stack_a->next;
-	}
-	free_stack(&ps, 1);
+	//while (ps.stack_a->next)
+	//{
+	//	printf("stack(a) = %d\n",ps.stack_a->data);
+	//	ps.stack_a = ps.stack_a->next;
+	//	x++;
+	//}
+	//printf("stack(a) = %d\n",ps.stack_a->data);
+	free_stack(&ps);
 	exit(0);
 }
 
@@ -65,6 +68,7 @@ static int	create_stack(t_node **node_bckp, char **av, t_ps *ps)
 			exit(1);
 		}
 	}
+	//ps->last = temp;
 	return (1);
 }
 static void	init_list(t_ps *ps)
@@ -76,21 +80,16 @@ static void	init_list(t_ps *ps)
 	ps->movements = 0;
 }
 
-static void	free_stack(t_ps *ps,int value)
+static void	free_stack(t_ps *ps)
 {
 	t_node	*temp;
 	temp = ps->stack_a;
-	int i = 0;
-	if(temp->next == NULL)
-	{
-		free(ps->stack_a);
-		return ;
-	}
 	while(temp->next != NULL)
 	{
 		temp = temp->next;
 		free(ps->stack_a);
 		ps->stack_a = temp;
 	}
+	free(ps->stack_a);
 	return ;
 }

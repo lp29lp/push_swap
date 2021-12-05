@@ -17,12 +17,10 @@ t_node	*new_node(int numb)
 	t_node	*new;
 	new = (t_node *)malloc(sizeof(t_node));
 	if (new == NULL){
-		printf("erro na criacao do node arruma ae");
 		exit(1);
 	}
 	new->next = NULL;
 	new->data = numb;
-	printf("criou o %d\n", new->data);
 	return (new);
 }
 
