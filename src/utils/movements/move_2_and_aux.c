@@ -35,8 +35,16 @@ void	rotate(t_node **node)
 	temp = aux;
 	last = *node;
 	last->next = NULL;
-	while (aux->next->next)
+	while (aux->next)
 		aux = aux->next;
 	aux->next = last;
 	*node = temp;
+}
+
+void	move_rrr(t_ps *ps)
+{
+	move_rra(ps, 1);
+	move_rrb(ps, 1);
+	ps->movements++;
+	write(1, "rrr\n", 4);
 }

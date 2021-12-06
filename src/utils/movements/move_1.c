@@ -23,28 +23,28 @@ void	move_rr(t_ps *ps)
 void	move_pb(t_ps *ps)
 {
 	t_node *aux;
-	t_node *temp;
 	t_node *new_stack;
 
 	if (ps->size_stack_a == 0)
-		return;
-	new_stack = ps->stack_a->next;
-	aux = ps->stack_a;
+		return ;
+	aux = ps->stack_a;//primeira posicao
+	new_stack = aux->next;//segunda posicao
 	if (ps->size_stack_b == 1)
 	{
-		aux->next = NULL;
 		ps->stack_b->data = aux->data;
 		ps->stack_a = new_stack;
+		free(aux);
+		aux = NULL;
 		ps->size_stack_b++;
 		ps->size_stack_a--;
 		ps->movements++;
 		write(1, "pb\n", 3);
-		return;
+		return ;
 	}
-	aux->next = NULL;
-	aux->next = ps->stack_b;
-	ps->stack_a = new_stack;
-	ps->stack_b = aux;
+	aux->next = NULL;//distaca a primeira 
+	aux->next = ps->stack_b;//liga na primeira da stack b
+	ps->stack_a = new_stack;//novo comeco stack a
+	ps->stack_b = aux;//novo comeco para stack b
 	ps->size_stack_b++;
 	ps->size_stack_a--;
 	ps->movements++;
@@ -57,25 +57,26 @@ void	move_pa(t_ps *ps)
 	t_node *temp;
 	t_node *new_stack;
 
-	if (ps->size_stack_b == 0)
-		return;
-
-	new_stack = ps->stack_b->next;
-	aux = ps->stack_b;
-	aux->next = NULL;
+	if (ps->size_stack_b == 1)
+		return ;
+	new_stack = ps->stack_b->next;//segunda posicao stack b
+	aux = ps->stack_b;//primeira posicao stack b
+	aux->next = NULL;//destacou
 	if (ps->size_stack_a == 0)
 	{
 		free (ps->stack_a);
 		ps->stack_a = new_node(aux->data);
-		ps->stack_b = new_stack; 
+		ps->stack_b = new_stack; //novo comeco da stack b
+		free(aux);
+		aux = NULL;
 		ps->size_stack_b--;
 		ps->size_stack_a++;
 		write(1, "pa\n", 3);
-		return;
+		return ;
 	}
-	aux->next = ps->stack_a;
-	ps->stack_b = new_stack;
-	ps->stack_a = aux;
+	aux->next = ps->stack_a;//ligou o destacado no comeco da stack a
+	ps->stack_b = new_stack;//novo comeco para stack b
+	ps->stack_a = aux;//novo comeco para stack a
 	ps->size_stack_b--;
 	ps->size_stack_a++;
 	ps->movements++;
@@ -120,12 +121,4 @@ void	move_rrb(t_ps *ps, int info)
 		return ;
 	ps->movements++;
 	write(1, "rrb\n", 4);
-}
-
-void	move_rrr(t_ps *ps)
-{
-	move_rra(ps, 1);
-	move_rrb(ps, 1);
-	ps->movements++;
-	write(1, "rrr\n", 4);
 }

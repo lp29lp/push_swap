@@ -14,21 +14,16 @@
 
 static int	create_stack(t_node **node_bckp, char **av, t_ps *ps);
 static void	init_list(t_ps *ps);
-static void	free_stack(t_ps *ps);
 int	checkAv(char *av);
 
 int	main(int ac, char **av)
 {
-	int x = 0;
 	t_ps	ps;
-	t_node	*aux;
+
 	if (ac <= 2)
 		exit(1);
 	init_list(&ps);
 	create_stack(&ps.stack_a, av, &ps);
-	move_pb(&ps);
-	move_pb(&ps);
-
 	free_stack(&ps);
 	exit(0);
 }
@@ -43,30 +38,20 @@ static int	create_stack(t_node **node_bckp, char **av, t_ps *ps)
 	i = 1;
 	while (av[i] != NULL)
 	{
-		if (ft_isdigitChar(av[i]))
+		if (ft_isdigitChar(av[i], ps))
 		{
-			t_num = ft_atoi(av[i]);//primeiro ver se e digito arrumar se caso houver letra
+			t_num = ft_atoi(av[i]);
 			check_list(node_bckp, t_num, ps);
-			if (ft_isdigit(t_num))
-			{
-				temp->data = t_num;
-				temp->next = new_node(t_num);
-				temp = temp->next;
-			}
-			else
-				exit(1);
+			temp->data = t_num;
+			temp->next = new_node(t_num);
+			temp = temp->next;
 			i++;
 			ps->size_stack_a++;
 		}
-		else
-		{
-			printf("matou\n");
-			exit(1);
-		}
 	}
-	//ps->last = temp;
 	return (1);
 }
+
 static void	init_list(t_ps *ps)
 {
 	ps->stack_a = new_node(0);
@@ -74,29 +59,4 @@ static void	init_list(t_ps *ps)
 	ps->size_stack_a = 0;
 	ps->size_stack_b = 1;
 	ps->movements = 0;
-}
-
-static void	free_stack(t_ps *ps)
-{
-	t_node	*temp;
-	temp = ps->stack_a;
-	while(temp->next != NULL)
-	{
-		temp = temp->next;
-		free(ps->stack_a);
-		ps->stack_a = temp;
-	}
-	free(ps->stack_a);
-	if (ps->size_stack_b > 1)
-	{
-		temp = ps->stack_b;
-		while (temp->next != NULL)
-		{
-			temp = temp->next;
-			free(ps->stack_b);
-			ps->stack_b = temp;
-		}
-		free(ps->stack_b);
-	}
-	return ;
 }
