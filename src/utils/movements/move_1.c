@@ -54,7 +54,6 @@ void	move_pb(t_ps *ps)
 void	move_pa(t_ps *ps)
 {
 	t_node *aux;
-	t_node *temp;
 	t_node *new_stack;
 
 	if (ps->size_stack_b == 1)

@@ -27,7 +27,6 @@ t_node	*new_node(int numb)
 int	check_list(t_node **node_bckp, int t_num, t_ps *ps)
 {
 	t_node	*temp;
-	t_node	*head;
 
 	temp = *node_bckp;
 
