@@ -26,13 +26,9 @@ int	main(int ac, char **av)
 		exit(1);
 	init_list(&ps);
 	create_stack(&ps.stack_a, av, &ps);
-	//while (ps.stack_a->next)
-	//{
-	//	printf("stack(a) = %d\n",ps.stack_a->data);
-	//	ps.stack_a = ps.stack_a->next;
-	//	x++;
-	//}
-	//printf("stack(a) = %d\n",ps.stack_a->data);
+	move_pb(&ps);
+	move_pb(&ps);
+
 	free_stack(&ps);
 	exit(0);
 }
@@ -76,7 +72,7 @@ static void	init_list(t_ps *ps)
 	ps->stack_a = new_node(0);
 	ps->stack_b = new_node(0);
 	ps->size_stack_a = 0;
-	ps->size_stack_b = 0;
+	ps->size_stack_b = 1;
 	ps->movements = 0;
 }
 
@@ -91,5 +87,16 @@ static void	free_stack(t_ps *ps)
 		ps->stack_a = temp;
 	}
 	free(ps->stack_a);
+	if (ps->size_stack_b > 1)
+	{
+		temp = ps->stack_b;
+		while (temp->next != NULL)
+		{
+			temp = temp->next;
+			free(ps->stack_b);
+			ps->stack_b = temp;
+		}
+		free(ps->stack_b);
+	}
 	return ;
 }

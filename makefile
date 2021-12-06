@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/05 16:31:32 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/05 22:45:15 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,12 @@ SRC = $(FILES:.c=.o)
 
 CC = clang
 RM = rm -f
-FLAG = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 all: comp test
 
 test:
-	@$(CC) $(FLAG) $(SRC) $(LIBFT) -o test
-	@echo test created.
+	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o file
+	@echo file created.
 
 comp: $(SRC)
 	@make --no-print-directory -C $(P_LIBFT)
@@ -44,6 +44,6 @@ clean:
 
 fclean: clean
 	@make fclean --no-print-directory -C $(P_LIBFT)
-	@$(RM) test
+	@$(RM) file
 
 re: fclean clean all

@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/05 16:42:28 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/05 22:37:29 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,10 @@ void	move_ra(t_ps *ps);
 void	move_rb(t_ps *ps);
 void	rotate(t_node **node);
 void	move_rr(t_ps *ps);
+void	move_pb(t_ps *ps);
+void	move_pa(t_ps *ps);
+void	move_rra(t_ps *ps, int info);
+void	move_rrb(t_ps *ps, int info);
+void	move_rrr(t_ps *ps);
 
 #endif

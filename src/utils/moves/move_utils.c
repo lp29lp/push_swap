@@ -14,14 +14,15 @@
 
 void	aux_ss(t_node **node)
 {
-	t_node	*tmp;
+	t_node	*temp;
 	t_node	*aux;
 
-	tmp = new_node(0);
+	temp = new_node(0);
 	aux = *node;
-	tmp->data = aux->data;
+	temp->data = aux->data;
 	aux->data = aux->next->data;
-	aux->next->data = tmp->data;
+	aux->next->data = temp->data;
+	free(temp);
 }
 
 void	rotate(t_node **node)
