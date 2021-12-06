@@ -36,6 +36,7 @@ int	check_list(t_node **node_bckp, int t_num, t_ps *ps)
 	{
 		if (temp->data == t_num)
 		{
+			ft_putendl_fd("There is numbers equals", 1);
 			free_stack(ps);
 			exit(1);
 		}
@@ -57,6 +58,7 @@ int	ft_isdigitChar(char *c, t_ps *ps)
 			i++;
 		else
 		{
+			ft_putendl_fd("Use just numbers", 1);
 			free_stack(ps);
 			exit(0);
 		}

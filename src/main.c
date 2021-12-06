@@ -14,16 +14,24 @@
 
 static int	create_stack(t_node **node_bckp, char **av, t_ps *ps);
 static void	init_list(t_ps *ps);
-int	checkAv(char *av);
 
 int	main(int ac, char **av)
 {
 	t_ps	ps;
 
 	if (ac <= 2)
+	{
+		ft_putendl_fd("Need more arguments", 1);
 		exit(1);
+	}
 	init_list(&ps);
 	create_stack(&ps.stack_a, av, &ps);
+	if (check_if_complete(&ps) == 0)
+	{
+		ft_putendl_fd("Alredy sorted", 1);
+		free_stack(&ps);
+		exit(1);
+	}
 	free_stack(&ps);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/06 19:56:24 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/06 20:51:17 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ P_UTILS = ./src/utils
 P_MOVEMENTS = ./src/utils/movements
 
 FILES = $(P_SRC)/main.c $(P_UTILS)/utils_0.c $(P_MOVEMENTS)/move_0.c \
-		$(P_MOVEMENTS)/move_1.c $(P_MOVEMENTS)/move_2_and_aux.c
+		$(P_MOVEMENTS)/move_1.c $(P_MOVEMENTS)/move_2_and_aux.c \
+		$(P_UTILS)/utils_1.c
 SRC = $(FILES:.c=.o)
 
 CC = clang
@@ -32,7 +33,7 @@ comp: $(SRC)
 
 clean:
 	@$(RM) $(SRC)
-	@echo All clean dude.
+	@echo All clean.
 
 fclean: clean
 	@$(RM) file

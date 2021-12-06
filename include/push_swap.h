@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/06 17:13:29 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:46:16 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void	move_rra(t_ps *ps, int info);
 void	move_rrb(t_ps *ps, int info);
 void	move_rrr(t_ps *ps);
 void	free_stack(t_ps *ps);
-int	ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
+int		check_if_complete(t_ps *ps);
+size_t	ft_strlen(const char *s);
+void	ft_putendl_fd(char *s, int fd);
 
 #endif
