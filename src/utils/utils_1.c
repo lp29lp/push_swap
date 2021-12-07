@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 20:17:01 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/06 20:41:48 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/07 02:22:17 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int	check_if_complete(t_ps *ps)
 		if (prev_numb > temp->data)
 			return (1);
 	}
-	return (0);
+	ft_putendl_fd("Alredy sorted", 1);//remover a funcao dps
+	free_stack(ps);
+	exit(1);
 }
 
 void	ft_putendl_fd(char *s, int fd)
@@ -43,4 +45,29 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+int	ft_atoi(const char *nptr)
+{
+	long	result;
+	int		sign;
+
+	result = 0;
+	sign = 1;
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+	{
+		if (*nptr == '-')
+			sign = -1;
+		nptr++;
+	}
+	while (*nptr >= '0' && *nptr <= '9')
+		result = result * 10 + (*nptr++ - '0');
+	if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
+	{
+		ft_putendl_fd("Error", 1);
+		exit(1);
+	}
+	return ((int)(result * sign));
 }

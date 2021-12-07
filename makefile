@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/06 20:51:17 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/07 02:30:57 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 all: comp
 
 comp: $(SRC)
-	@$(CC) $(CFLAGS) $(SRC) -o file
-	@echo file created.
+	@$(CC) $(CFLAGS) $(SRC) -o push_swap
+	@echo push_swap created.
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -36,6 +36,6 @@ clean:
 	@echo All clean.
 
 fclean: clean
-	@$(RM) file
+	@$(RM) push_swap
 
 re: fclean clean all

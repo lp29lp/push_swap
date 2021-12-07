@@ -36,7 +36,7 @@ int	check_list(t_node **node_bckp, int t_num, t_ps *ps)
 	{
 		if (temp->data == t_num)
 		{
-			ft_putendl_fd("There is numbers equals", 1);
+			ft_putendl_fd("Error", 1);
 			free_stack(ps);
 			exit(1);
 		}
@@ -58,7 +58,7 @@ int	ft_isdigitChar(char *c, t_ps *ps)
 			i++;
 		else
 		{
-			ft_putendl_fd("Use just numbers", 1);
+			ft_putendl_fd("Error", 1);
 			free_stack(ps);
 			exit(0);
 		}
@@ -66,40 +66,18 @@ int	ft_isdigitChar(char *c, t_ps *ps)
 	return (1);
 }
 
-int	ft_atoi(const char *nptr)
-{
-	long			result;
-	long			sign;
-	unsigned int	i;
-
-	result = 0;
-	i = 0;
-	sign = 1;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + nptr[i] - '0';
-		i++;
-	}
-	return ((int)(result * sign));
-}
-
 void	free_stack(t_ps *ps)
 {
 	t_node	*temp;
 	temp = ps->stack_a;
-	while(temp->next != NULL)
+	if (temp != NULL)
 	{
-		temp = temp->next;
-		free(ps->stack_a);
-		ps->stack_a = temp;
+		while(temp->next != NULL)
+		{
+			temp = temp->next;
+			free(ps->stack_a);
+			ps->stack_a = temp;
+		}
 	}
 	free(ps->stack_a);
 	if (ps->size_stack_b > 1)

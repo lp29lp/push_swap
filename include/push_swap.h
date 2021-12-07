@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/06 20:46:16 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/07 01:22:17 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 typedef struct s_node
 {
 	struct s_node	*next;
@@ -30,6 +32,7 @@ typedef struct s_ps
 	int		size_stack_a;
 	int		size_stack_b;
 	int		movements;
+	int		limit;
 }	t_ps;
 
 t_node	*new_node(int numb);
@@ -54,5 +57,6 @@ int		ft_atoi(const char *nptr);
 int		check_if_complete(t_ps *ps);
 size_t	ft_strlen(const char *s);
 void	ft_putendl_fd(char *s, int fd);
+int		ft_isdigitChar_no_struct(char *c);
 
 #endif

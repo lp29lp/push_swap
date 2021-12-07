@@ -12,50 +12,62 @@
 
 #include "../include/push_swap.h"
 
-static int	create_stack(t_node **node_bckp, char **av, t_ps *ps);
+static int	create_stack(t_node **head, char **av, t_ps *ps);
 static void	init_list(t_ps *ps);
+static void	count_av(char **av, t_ps *ps);
 
 int	main(int ac, char **av)
 {
 	t_ps	ps;
+	//t_node	*aux;
 
 	if (ac <= 2)
 	{
-		ft_putendl_fd("Need more arguments", 1);
 		exit(1);
 	}
 	init_list(&ps);
 	create_stack(&ps.stack_a, av, &ps);
-	if (check_if_complete(&ps) == 0)
-	{
-		ft_putendl_fd("Alredy sorted", 1);
-		free_stack(&ps);
-		exit(1);
-	}
+	check_if_complete(&ps);
+	//aux = ps.stack_a;
+	//while (aux != NULL)
+	//{
+	//	printf("stack_a: %d\n", aux->data);
+	//	aux = aux->next;
+	//}
+	//printf("\n");
+	//aux = ps.stack_b;
+	//while (aux != NULL)
+	//{
+	//	printf("stack_b: %d\n", aux->data);
+	//	aux = aux->next;
+	//}
 	free_stack(&ps);
 	exit(0);
 }
 
-static int	create_stack(t_node **node_bckp, char **av, t_ps *ps)
+static int	create_stack(t_node **head, char **av, t_ps *ps)
 {
 	t_node	*temp;
 	int		i;
 	int		t_num;
 
-	temp = *node_bckp;
+	temp = *head;
 	i = 1;
-	while (av[i] != NULL)
+	count_av(av, ps);
+	while (av[i] != NULL && ft_isdigitChar(av[i], ps) == 1)
 	{
-		if (ft_isdigitChar(av[i], ps))
+		t_num = ft_atoi(av[i]);
+		check_list(head, t_num, ps);
+		temp->data = t_num;
+		if ((ps->limit - 1) == i)
 		{
-			t_num = ft_atoi(av[i]);
-			check_list(node_bckp, t_num, ps);
-			temp->data = t_num;
-			temp->next = new_node(t_num);
-			temp = temp->next;
-			i++;
 			ps->size_stack_a++;
+			return (1);
 		}
+		temp->next = new_node(t_num);
+		temp = temp->next;
+		i++;
+		ps->size_stack_a++;
 	}
 	return (1);
 }
@@ -67,4 +79,11 @@ static void	init_list(t_ps *ps)
 	ps->size_stack_a = 0;
 	ps->size_stack_b = 1;
 	ps->movements = 0;
+}
+
+static void	count_av(char **av, t_ps *ps)
+{
+	ps->limit = 1;
+	while (av[ps->limit] != NULL)
+		ps->limit++;
 }

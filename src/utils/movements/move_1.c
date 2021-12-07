@@ -108,12 +108,12 @@ void	move_rrb(t_ps *ps, int info)
 	t_node	*last;
 	t_node	*temp;
 
-	aux = ps->stack_b;
-	temp = aux;
-	while (aux->next->next)
-		aux = aux->next;
-	last = aux->next;
-	aux->next = NULL;
+	aux = ps->stack_b;//primeira posicao
+	temp = aux;//primeira posicao
+	while (aux->next->next)//procura o penultimo
+		aux = aux->next;//sai como penultimo
+	last = aux->next;//guarda ultima posicao
+	aux->next = NULL;//destaca o penultimo da ultima deixando a ultima sozinha
 	last->next = temp;
 	ps->stack_b = last;
 	if(info == 1)
