@@ -19,7 +19,6 @@ static void	count_av(char **av, t_ps *ps);
 int	main(int ac, char **av)
 {
 	t_ps	ps;
-	t_node	*aux;
 
 	if (ac <= 2)
 	{
@@ -32,24 +31,6 @@ int	main(int ac, char **av)
 		index_small(&ps);
 	else
 		big_stack(&ps);
-	aux = ps.stack_a;
-	while (aux != NULL)
-	{
-		printf("stack_a: %d\n", aux->data);
-		aux = aux->next;
-	}
-	printf("Stack_a size: %d\n", ps.size_stack_a);
-	printf("Stack_b size: %d\n", ps.size_stack_b);
-	printf("movementos: %d\n", ps.movements);
-	printf("\n");
-	aux = ps.stack_b;
-	while (aux != NULL)
-	{
-		printf("stack_b: %d\n", aux->data);
-		aux = aux->next;
-	}
-	if (check_if_complete(&ps) == 0)
-		printf("nao ta\n");
 	free_stack(&ps);
 	exit(0);
 }

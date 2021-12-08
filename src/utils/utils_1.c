@@ -26,9 +26,8 @@ int	check_if_complete(t_ps *ps)
 		if (prev_numb > temp->data)
 			return (0);
 	}
-	//free_stack(ps);
-	//exit(1);
-	printf("ta maravilhoso\n");
+	free_stack(ps);
+	exit(1);
 	return (1);
 }
 

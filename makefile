@@ -24,16 +24,16 @@ SRC = $(FILES:.c=.o)
 CC = clang
 RM = rm -f
 NAME = push_swap
-CFLAGS = -Wall -Werror -Wextra -I ./include/ -g #-fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -I ./include/ -g -fsanitize=address
 
 all: $(NAME)
 
 $(NAME): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo push_swap created.
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(SRC)
