@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/07 01:22:17 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/07 21:11:37 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ typedef struct s_ps
 	int		size_stack_b;
 	int		movements;
 	int		limit;
+	int		bottom;
+	int		mid;
+	int		top;
+	int		min;
+	int		max;
+	int		next_min;
+	int		first;
+	int		last;
 }	t_ps;
 
 t_node	*new_node(int numb);
@@ -58,5 +66,15 @@ int		check_if_complete(t_ps *ps);
 size_t	ft_strlen(const char *s);
 void	ft_putendl_fd(char *s, int fd);
 int		ft_isdigitChar_no_struct(char *c);
+void	three_numbers(t_ps *ps);
+void	index_small(t_ps *ps);
+int		get_min(t_ps *ps);
+int		get_max(t_ps *ps);
+void	four_numbers(t_ps *ps);
+void	get_three(t_ps *ps);
+int		get_nextmin(t_ps *ps);
+void	five_cont_one(t_ps *ps);
+void	five_cont_two(t_ps *ps, t_node *temp);
+void	five_numbers(t_ps *ps);
 
 #endif

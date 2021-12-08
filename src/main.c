@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include <push_swap.h>
 
 static int	create_stack(t_node **head, char **av, t_ps *ps);
 static void	init_list(t_ps *ps);
@@ -19,7 +19,7 @@ static void	count_av(char **av, t_ps *ps);
 int	main(int ac, char **av)
 {
 	t_ps	ps;
-	//t_node	*aux;
+	t_node	*aux;
 
 	if (ac <= 2)
 	{
@@ -28,12 +28,17 @@ int	main(int ac, char **av)
 	init_list(&ps);
 	create_stack(&ps.stack_a, av, &ps);
 	check_if_complete(&ps);
-	//aux = ps.stack_a;
-	//while (aux != NULL)
-	//{
-	//	printf("stack_a: %d\n", aux->data);
-	//	aux = aux->next;
-	//}
+	index_small(&ps);
+	//check_if_complete(&ps);
+	aux = ps.stack_a;
+	while (aux != NULL)
+	{
+		printf("stack_a: %d\n", aux->data);
+		aux = aux->next;
+	}
+	printf("Stack_a size: %d\n", ps.size_stack_a);
+	printf("Stack_b size: %d\n", ps.size_stack_b);
+	printf("movementos: %d\n", ps.movements);
 	//printf("\n");
 	//aux = ps.stack_b;
 	//while (aux != NULL)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/push_swap.h"
+#include <push_swap.h>
 
 void	move_rr(t_ps *ps)
 {

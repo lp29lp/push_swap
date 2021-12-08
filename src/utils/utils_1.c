@@ -6,11 +6,11 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 20:17:01 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/07 02:22:17 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/07 21:11:08 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include <push_swap.h>
 
 int	check_if_complete(t_ps *ps)
 {
