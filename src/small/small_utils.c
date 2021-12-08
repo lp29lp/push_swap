@@ -6,11 +6,23 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 08:32:04 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/07 21:11:25 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:56:27 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+void	index_small(t_ps *ps)
+{
+	if (ps->size_stack_a == 2)
+		move_sa(ps);
+	if (ps->size_stack_a == 3)
+		three_numbers(ps);
+	if (ps->size_stack_a == 4)
+		four_numbers(ps);
+	if (ps->size_stack_a == 5)
+		five_numbers(ps);
+}
 
 int	get_min(t_ps *ps)
 {
@@ -50,12 +62,14 @@ int	get_nextmin(t_ps *ps)
 	return (nm);
 }
 
-int	get_max(t_ps *ps)
+int	get_max(t_ps *ps, int i)
 {
 	t_node	*temp;
 	int		max;
-
-	temp = ps->stack_a;
+	if (i == 0)
+		temp = ps->stack_a;
+	else
+		temp = ps->stack_b;
 	max = temp->data;
 	while (temp != NULL)
 	{

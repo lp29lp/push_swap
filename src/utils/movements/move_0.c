@@ -56,6 +56,8 @@ void	move_ss(t_ps *ps)
 
 void	move_ra(t_ps *ps)
 {
+	if (ps->size_stack_a <= 1)
+		return ;
 	rotate(&ps->stack_a);
 	write(1, "ra\n", 3);
 	ps->movements++;
@@ -63,6 +65,8 @@ void	move_ra(t_ps *ps)
 
 void	move_rb(t_ps *ps)
 {
+	if (ps->size_stack_b <= 2)
+		return ;
 	rotate(&ps->stack_b);
 	write(1, "rb\n", 3);
 	ps->movements++;

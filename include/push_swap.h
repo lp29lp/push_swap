@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/07 21:11:37 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/08 18:11:50 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ typedef struct s_ps
 	int		next_min;
 	int		first;
 	int		last;
+	int		c_chunk;
+	int		last_position;
+	int		first_position;
+	int		hold_first;
+	int		hold_second;
+	int		value;
+	int		i;
 }	t_ps;
 
 t_node	*new_node(int numb);
@@ -69,12 +76,25 @@ int		ft_isdigitChar_no_struct(char *c);
 void	three_numbers(t_ps *ps);
 void	index_small(t_ps *ps);
 int		get_min(t_ps *ps);
-int		get_max(t_ps *ps);
+int		get_max(t_ps *ps, int i);
 void	four_numbers(t_ps *ps);
 void	get_three(t_ps *ps);
 int		get_nextmin(t_ps *ps);
 void	five_cont_one(t_ps *ps);
 void	five_cont_two(t_ps *ps, t_node *temp);
 void	five_numbers(t_ps *ps);
+//q vida
+int		f_chunk(t_ps *ps);
+void	big_stack(t_ps *ps);
+void	check_swap(t_ps *ps, int bigf_chunk);
+int	get_number(t_ps *ps, int bigf_chunk);
+void	check_second(t_ps *ps);
+void	back_to_a(t_ps *ps);
+void	check(t_ps *ps, int i);
+int	get_position(t_ps *ps, int max);
+void	find_min(t_ps *ps, int bigf_chunk);
+void	parse_to_send(t_ps *ps);
+void	check_send(t_ps *ps, int big);
+void check_support(t_ps *ps, int cont, int min);
 
 #endif

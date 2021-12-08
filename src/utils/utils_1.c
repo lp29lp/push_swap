@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 20:17:01 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/07 21:11:08 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/08 05:29:34 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ int	check_if_complete(t_ps *ps)
 		prev_numb = temp->data;
 		temp = temp->next;
 		if (prev_numb > temp->data)
-			return (1);
+			return (0);
 	}
-	ft_putendl_fd("Alredy sorted", 1);//remover a funcao dps
-	free_stack(ps);
-	exit(1);
+	//free_stack(ps);
+	//exit(1);
+	printf("ta maravilhoso\n");
+	return (1);
 }
 
 void	ft_putendl_fd(char *s, int fd)

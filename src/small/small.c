@@ -6,23 +6,11 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 06:05:55 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/07 21:11:21 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:55:32 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-
-void	index_small(t_ps *ps)
-{
-	if (ps->size_stack_a == 2)
-		move_sa(ps);
-	if (ps->size_stack_a == 3)
-		three_numbers(ps);
-	if (ps->size_stack_a == 4)
-		four_numbers(ps);
-	if (ps->size_stack_a == 5)
-		five_numbers(ps);
-}
 
 void	three_numbers(t_ps *ps)
 {
@@ -50,7 +38,7 @@ void	four_numbers(t_ps *ps)
 	int		max;
 
 	min = get_min(ps);
-	max = get_max(ps);
+	max = get_max(ps, 0);
 	if (ps->stack_a->data == min || ps->stack_a->data == max)
 		move_pb(ps);
 	else if (ps->stack_a->next->data == min || ps->stack_a->next->data == max)
@@ -78,7 +66,7 @@ void	five_numbers(t_ps *ps)
 	t_node	*temp;
 	
 	ps->min = get_min(ps);
-	ps->max = get_max(ps);
+	ps->max = get_max(ps, 0);
 	ps->next_min = get_nextmin(ps);
 	five_cont_one(ps);
 	three_numbers(ps);

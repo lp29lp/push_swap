@@ -24,7 +24,8 @@ void	move_pb(t_ps *ps)
 {
 	t_node *aux;
 	t_node *new_stack;
-
+	if (ps->stack_b == NULL)
+		ps->stack_b = new_node(0);
 	if (ps->size_stack_a == 0)
 		return ;
 	aux = ps->stack_a;//primeira posicao
