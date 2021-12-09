@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/08 18:11:50 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/09 01:12:19 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+
 typedef struct s_node
 {
 	struct s_node	*next;
@@ -53,7 +54,7 @@ typedef struct s_ps
 t_node	*new_node(int numb);
 int		check_list(t_node **node_bckp, int t_num, t_ps *ps);
 int		main(int ac, char **ag);
-int		ft_isdigitChar(char *c, t_ps *ps);
+int		ft_isdigit_char(char *c, t_ps *ps);
 void	move_sa(t_ps *ps);
 void	move_sb(t_ps *ps);
 void	aux_ss(t_node **node);
@@ -83,18 +84,20 @@ int		get_nextmin(t_ps *ps);
 void	five_cont_one(t_ps *ps);
 void	five_cont_two(t_ps *ps, t_node *temp);
 void	five_numbers(t_ps *ps);
-//q vida
+void	move_rrb(t_ps *ps, int info);
+void	aux_move_pa(t_ps *ps, t_node *new_stack, t_node *aux);
+void	aux_move_pb(t_ps *ps, t_node *new_stack, t_node *aux);
 int		f_chunk(t_ps *ps);
 void	big_stack(t_ps *ps);
 void	check_swap(t_ps *ps, int bigf_chunk);
-int	get_number(t_ps *ps, int bigf_chunk);
+int		get_number(t_ps *ps, int bigf_chunk);
 void	check_second(t_ps *ps);
 void	back_to_a(t_ps *ps);
 void	check(t_ps *ps, int i);
-int	get_position(t_ps *ps, int max);
+int		get_position(t_ps *ps, int max);
 void	find_min(t_ps *ps, int bigf_chunk);
 void	parse_to_send(t_ps *ps);
 void	check_send(t_ps *ps, int big);
-void check_support(t_ps *ps, int cont, int min);
+void	check_support(t_ps *ps, int cont, int min);
 
 #endif

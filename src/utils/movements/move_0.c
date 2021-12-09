@@ -50,7 +50,7 @@ void	move_ss(t_ps *ps)
 {
 	aux_ss(&ps->stack_a);
 	aux_ss(&ps->stack_b);
-	write(1, "ss\n",3);
+	write(1, "ss\n", 3);
 	ps->movements++;
 }
 

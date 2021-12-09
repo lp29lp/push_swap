@@ -48,3 +48,16 @@ void	move_rrr(t_ps *ps)
 	ps->movements++;
 	write(1, "rrr\n", 4);
 }
+
+void	aux_move_pb(t_ps *ps, t_node *new_stack, t_node *aux)
+{
+	ps->stack_b->data = aux->data;
+	ps->stack_a = new_stack;
+	free(aux);
+	aux = NULL;
+	ps->size_stack_b++;
+	ps->size_stack_a--;
+	ps->movements++;
+	write(1, "pb\n", 3);
+	return ;
+}

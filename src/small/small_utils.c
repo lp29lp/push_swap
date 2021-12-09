@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 08:32:04 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/08 17:56:27 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/09 01:08:29 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	get_max(t_ps *ps, int i)
 {
 	t_node	*temp;
 	int		max;
+
 	if (i == 0)
 		temp = ps->stack_a;
 	else

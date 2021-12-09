@@ -22,30 +22,24 @@ void	move_rr(t_ps *ps)
 
 void	move_pb(t_ps *ps)
 {
-	t_node *aux;
-	t_node *new_stack;
+	t_node	*aux;
+	t_node	*new_stack;
+
 	if (ps->stack_b == NULL)
 		ps->stack_b = new_node(0);
 	if (ps->size_stack_a == 0)
 		return ;
-	aux = ps->stack_a;//primeira posicao
-	new_stack = aux->next;//segunda posicao
+	aux = ps->stack_a;
+	new_stack = aux->next;
 	if (ps->size_stack_b == 1)
 	{
-		ps->stack_b->data = aux->data;
-		ps->stack_a = new_stack;
-		free(aux);
-		aux = NULL;
-		ps->size_stack_b++;
-		ps->size_stack_a--;
-		ps->movements++;
-		write(1, "pb\n", 3);
+		aux_move_pb(ps, new_stack, aux);
 		return ;
 	}
-	aux->next = NULL;//distaca a primeira 
-	aux->next = ps->stack_b;//liga na primeira da stack b
-	ps->stack_a = new_stack;//novo comeco stack a
-	ps->stack_b = aux;//novo comeco para stack b
+	aux->next = NULL;
+	aux->next = ps->stack_b;
+	ps->stack_a = new_stack;
+	ps->stack_b = aux;
 	ps->size_stack_b++;
 	ps->size_stack_a--;
 	ps->movements++;
@@ -54,29 +48,22 @@ void	move_pb(t_ps *ps)
 
 void	move_pa(t_ps *ps)
 {
-	t_node *aux;
-	t_node *new_stack;
+	t_node	*aux;
+	t_node	*new_stack;
 
 	if (ps->size_stack_b == 1)
 		return ;
-	new_stack = ps->stack_b->next;//segunda posicao stack b
-	aux = ps->stack_b;//primeira posicao stack b
-	aux->next = NULL;//destacou
+	new_stack = ps->stack_b->next;
+	aux = ps->stack_b;
+	aux->next = NULL;
 	if (ps->size_stack_a == 0)
 	{
-		free (ps->stack_a);
-		ps->stack_a = new_node(aux->data);
-		ps->stack_b = new_stack; //novo comeco da stack b
-		free(aux);
-		aux = NULL;
-		ps->size_stack_b--;
-		ps->size_stack_a++;
-		write(1, "pa\n", 3);
+		aux_move_pa(ps, new_stack, aux);
 		return ;
 	}
-	aux->next = ps->stack_a;//ligou o destacado no comeco da stack a
-	ps->stack_b = new_stack;//novo comeco para stack b
-	ps->stack_a = aux;//novo comeco para stack a
+	aux->next = ps->stack_a;
+	ps->stack_b = new_stack;
+	ps->stack_a = aux;
 	ps->size_stack_b--;
 	ps->size_stack_a++;
 	ps->movements++;
@@ -109,15 +96,15 @@ void	move_rrb(t_ps *ps, int info)
 	t_node	*last;
 	t_node	*temp;
 
-	aux = ps->stack_b;//primeira posicao
-	temp = aux;//primeira posicao
-	while (aux->next->next)//procura o penultimo
-		aux = aux->next;//sai como penultimo
-	last = aux->next;//guarda ultima posicao
-	aux->next = NULL;//destaca o penultimo da ultima deixando a ultima sozinha
+	aux = ps->stack_b;
+	temp = aux;
+	while (aux->next->next)
+		aux = aux->next;
+	last = aux->next;
+	aux->next = NULL;
 	last->next = temp;
 	ps->stack_b = last;
-	if(info == 1)
+	if (info == 1)
 		return ;
 	ps->movements++;
 	write(1, "rrb\n", 4);

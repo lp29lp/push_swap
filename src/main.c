@@ -44,7 +44,7 @@ static int	create_stack(t_node **head, char **av, t_ps *ps)
 	temp = *head;
 	i = 1;
 	count_av(av, ps);
-	while (av[i] != NULL && ft_isdigitChar(av[i], ps) == 1)
+	while (av[i] != NULL && ft_isdigit_char(av[i], ps) == 1)
 	{
 		t_num = ft_atoi(av[i]);
 		check_list(head, t_num, ps);

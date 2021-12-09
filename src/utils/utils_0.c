@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <push_swap.h>
 
 t_node	*new_node(int numb)
 {
 	t_node	*new;
+
 	new = (t_node *)malloc(sizeof(t_node));
 	if (new == NULL)
 		exit(1);
@@ -29,8 +29,7 @@ int	check_list(t_node **node_bckp, int t_num, t_ps *ps)
 	t_node	*temp;
 
 	temp = *node_bckp;
-
-	if(temp->next == NULL)
+	if (temp->next == NULL)
 		return (1);
 	while (temp->next != NULL)
 	{
@@ -45,7 +44,7 @@ int	check_list(t_node **node_bckp, int t_num, t_ps *ps)
 	return (1);
 }
 
-int	ft_isdigitChar(char *c, t_ps *ps)
+int	ft_isdigit_char(char *c, t_ps *ps)
 {
 	int	i;
 
@@ -69,10 +68,11 @@ int	ft_isdigitChar(char *c, t_ps *ps)
 void	free_stack(t_ps *ps)
 {
 	t_node	*temp;
+
 	temp = ps->stack_a;
 	if (temp != NULL)
 	{
-		while(temp->next != NULL)
+		while (temp->next != NULL)
 		{
 			temp = temp->next;
 			free(ps->stack_a);
@@ -91,5 +91,18 @@ void	free_stack(t_ps *ps)
 		}
 	}
 	free(ps->stack_b);
+	return ;
+}
+
+void	aux_move_pa(t_ps *ps, t_node *new_stack, t_node *aux)
+{
+	free (ps->stack_a);
+	ps->stack_a = new_node(aux->data);
+	ps->stack_b = new_stack;
+	free(aux);
+	aux = NULL;
+	ps->size_stack_b--;
+	ps->size_stack_a++;
+	write(1, "pa\n", 3);
 	return ;
 }

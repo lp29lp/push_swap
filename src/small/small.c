@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 06:05:55 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/08 17:55:32 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/09 01:08:11 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 void	three_numbers(t_ps *ps)
 {
 	get_three(ps);
-	if (ps->bottom > ps->top && ps->bottom < ps->mid)//1 3 2
+	if (ps->bottom > ps->top && ps->bottom < ps->mid)
 	{
 		move_rra(ps, 0);
 		move_sa(ps);
 	}
-	if (ps->bottom > ps->mid && ps->bottom > ps->top && ps->top > ps->mid)//maior numero ta embaixo 2 1 3
-		move_sa(ps);//maior ta embaixo entao e so colocar o primeiro em segundo
-	if (ps->bottom < ps->top && ps->bottom < ps->mid)//2 3 1
+	if (ps->bottom > ps->mid && ps->bottom > ps->top && ps->top > ps->mid)
+		move_sa(ps);
+	if (ps->bottom < ps->top && ps->bottom < ps->mid)
 	{
-		if (ps->top > ps->mid && ps->mid > ps->bottom)//3 2 1
+		if (ps->top > ps->mid && ps->mid > ps->bottom)
 			move_sa(ps);
 		move_rra(ps, 0);
 	}
-	if (ps->bottom > ps->mid && ps->bottom < ps->top)//3 1 2
+	if (ps->bottom > ps->mid && ps->bottom < ps->top)
 		move_ra(ps);
 }
 
@@ -64,7 +64,7 @@ void	four_numbers(t_ps *ps)
 void	five_numbers(t_ps *ps)
 {
 	t_node	*temp;
-	
+
 	ps->min = get_min(ps);
 	ps->max = get_max(ps, 0);
 	ps->next_min = get_nextmin(ps);
@@ -74,7 +74,7 @@ void	five_numbers(t_ps *ps)
 	five_cont_two(ps, temp);
 }
 
-void five_cont_two(t_ps *ps, t_node *temp)
+void	five_cont_two(t_ps *ps, t_node *temp)
 {
 	temp = ps->stack_b;
 	ps->first = temp->data;
@@ -101,12 +101,12 @@ void five_cont_two(t_ps *ps, t_node *temp)
 
 void	five_cont_one(t_ps *ps)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	temp = ps->stack_a;
 	while (ps->size_stack_b <= 2)
 	{
-		if (temp->data == ps->min|| temp->data == ps->max)
+		if (temp->data == ps->min || temp->data == ps->max)
 		{
 			move_pb(ps);
 			temp = ps->stack_a;

@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 20:17:01 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/08 05:29:34 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/09 00:47:45 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_if_complete(t_ps *ps)
 
 	prev_numb = 0;
 	temp = ps->stack_a;
-	while(temp->next)
+	while (temp->next)
 	{
 		prev_numb = temp->data;
 		temp = temp->next;

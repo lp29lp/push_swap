@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:58:21 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/08 18:38:59 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/09 01:10:45 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	big_stack(t_ps *ps)
 {
 	int	bigf_chunk;
 
-	bigf_chunk = f_chunk(ps);// maior numero ate 25x q seja maior q o menor entretando nao literalmente precisa ser o maior numero de todo da lista
-	while (ps->size_stack_a > 0)//esvazia a stack a
+	bigf_chunk = f_chunk(ps);
+	while (ps->size_stack_a > 0)
 	{
 		if (ps->size_stack_a == 1)
 		{
@@ -38,13 +38,12 @@ void	big_stack(t_ps *ps)
 	back_to_a(ps);
 }
 
-
-void	check_swap(t_ps *ps, int bigf_chunk)//ve se vale a pena move o menor ou o maior
+void	check_swap(t_ps *ps, int bigf_chunk)
 {
 	int	half;
 
 	half = (ps->size_stack_a / 2);
-	ps->hold_second = get_number(ps, bigf_chunk);//pega o numero mais proximo do maior ou ele mesmo e pega o tanto de posicao ate ele
+	ps->hold_second = get_number(ps, bigf_chunk);
 	if (ps->first_position <= half - (ps->last_position - half))
 		parse_to_send(ps);
 	else
@@ -62,12 +61,12 @@ int	get_number(t_ps *ps, int bigf_chunk)
 	aux = ps->stack_a;
 	while (aux)
 	{
-		if (aux->data <= bigf_chunk)//se stack < q 25(bigf_chunk e o maior numero) se n bigf_chunk e o maior numero do chunk atual(vigesimo quinto)
+		if (aux->data <= bigf_chunk)
 			num = aux->data;
 		aux = aux->next;
 	}
 	aux = ps->stack_a;
-	while (aux)//conta quantas posicao tem ate bigf_chunk/num
+	while (aux)
 	{
 		if (aux->data == num)
 			return (num);
@@ -85,12 +84,12 @@ int	f_chunk(t_ps *ps)
 	ps->max = INT_MAX;
 	aux = ps->stack_a;
 	ps->min = get_min(ps);
-	while(ps->stack_a)
+	while (ps->stack_a)
 	{
 		temp = ps->stack_a;
-		while(temp)
+		while (temp)
 		{
-			if (temp->data > ps->min && temp->data < ps->max)//procura o numero mais proximo do menor no comeco da lista ou o maior numero ate 25x q seja maior q o menor entretando nao literalmente precisa ser o maior numero de todo da lista
+			if (temp->data > ps->min && temp->data < ps->max)
 				ps->max = temp->data;
 			temp = temp->next;
 		}
@@ -123,11 +122,10 @@ void	check_second(t_ps *ps)
 		temp = ps->stack_a;
 		if (temp->data == ps->hold_second)
 		{
-			check_send(ps, ps->hold_second);//menor numero
-			move_pb(ps);//manda para b
+			check_send(ps, ps->hold_second);
+			move_pb(ps);
 			return ;
 		}
 		move_rra(ps, 0);
 	}
 }
-

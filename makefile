@@ -6,40 +6,51 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/08 18:07:41 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/09 00:37:50 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-P_SRC = ./src
-P_UTILS = ./src/utils
-P_MOVEMENTS = ./src/utils/movements
-P_SMALL = ./src/small
-P_BIG = ./src/big
-FILES = $(P_SRC)/main.c $(P_UTILS)/utils_0.c $(P_MOVEMENTS)/move_0.c \
-		$(P_MOVEMENTS)/move_1.c $(P_MOVEMENTS)/move_2_and_aux.c \
-		$(P_UTILS)/utils_1.c $(P_SMALL)/small.c $(P_SMALL)/small_utils.c \
-		$(P_BIG)/big.c $(P_BIG)/big_utils_0.c $(P_BIG)/big_utils_1.c
-SRC = $(FILES:.c=.o)
+P_SRC = ./src/
+P_UTILS = $(P_SRC)utils/
+P_MOVEMENTS = $(P_SRC)utils/movements/
+P_SMALL = $(P_SRC)small/
+P_BIG = $(P_SRC)big/
+P_OBJ = ./obj/
+P_INCLUDE = ./include/
+
+FILES = $(P_SRC)main.c $(P_UTILS)utils_0.c $(P_MOVEMENTS)move_0.c \
+		$(P_MOVEMENTS)move_1.c $(P_MOVEMENTS)move_2_and_aux.c \
+		$(P_UTILS)utils_1.c $(P_SMALL)small.c $(P_SMALL)small_utils.c \
+		$(P_BIG)big.c $(P_BIG)big_utils_0.c $(P_BIG)big_utils_1.c
+
+SRC = $(patsubst $(P_SRC)%.c, $(P_OBJ)%.o, $(FILES))
 
 CC = clang
-RM = rm -f
+RM = rm -rf
+RMR = rm -rf
 NAME = push_swap
 CFLAGS = -Wall -Werror -Wextra -I ./include/ -g -fsanitize=address
 
 all: $(NAME)
 
 $(NAME): $(SRC)
+	@echo Folder for obj Created.
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-	@echo push_swap created.
+	@echo "file(push_swap) created."
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(P_OBJ)%.o: $(P_SRC)%.c
+	@mkdir -p $(P_OBJ)
+	@mkdir -p $(P_OBJ)big
+	@mkdir -p $(P_OBJ)small
+	@mkdir -p $(P_OBJ)utils
+	@mkdir -p $(P_OBJ)utils/movements
+	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
-	@$(RM) $(SRC)
+	@$(RM) $(P_OBJ)
 	@echo All clean.
 
 fclean: clean
-	@$(RM) push_swap
+	@$(RM) $(NAME)
 
-re: fclean clean all
+re: fclean all

@@ -6,13 +6,13 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:48:27 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/08 18:11:44 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/09 01:11:24 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	find_min(t_ps *ps, int bigf_chunk)//find the first min in current chunk
+void	find_min(t_ps *ps, int bigf_chunk)
 {
 	t_node	*temp;
 
@@ -57,7 +57,7 @@ void	parse_to_send(t_ps *ps)
 void	check_send(t_ps *ps, int big)
 {
 	t_node	*temp;
-	
+
 	ps->value = 0;
 	if (ps->size_stack_b == 1)
 		return ;
@@ -80,7 +80,7 @@ void	check_send(t_ps *ps, int big)
 	return ;
 }
 
-void check_support(t_ps *ps, int cont, int min)
+void	check_support(t_ps *ps, int cont, int min)
 {
 	t_node	*temp;
 
