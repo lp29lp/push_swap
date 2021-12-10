@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/10 02:01:09 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/10 06:48:52 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ P_UTILS = $(P_SRC)utils/
 P_MOVEMENTS = $(P_SRC)utils/movements/
 P_SMALL = $(P_SRC)small/
 P_BIG = $(P_SRC)big/
+P_LIBFT = ./include/libft/
 P_OBJ = ./obj/
 P_INCLUDE = ./include/
 
@@ -25,17 +26,21 @@ FILES = $(P_SRC)main.c $(P_UTILS)utils_0.c $(P_MOVEMENTS)move_0.c \
 
 SRC = $(patsubst $(P_SRC)%.c, $(P_OBJ)%.o, $(FILES))
 
+LIBFT = $(P_LIBFT)libft.a
+
+NAME = push_swap
+
 CC = clang
 RM = rm -rf
 RMR = rm -rf
-NAME = push_swap
 CFLAGS = -Wall -Werror -Wextra -I ./include/ #-g -fsanitize=address
 
 all: $(NAME)
 
 $(NAME): $(SRC)
+	@make --no-print-directory -C $(P_LIBFT)
 	@echo Folder for obj Created.
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME)
 	@echo "file(push_swap) created."
 
 $(P_OBJ)%.o: $(P_SRC)%.c
@@ -47,14 +52,16 @@ $(P_OBJ)%.o: $(P_SRC)%.c
 	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
 val:
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./push_swap 3 2 0
+	valgrind --leak-check=full --show-leak-kinds=all -s --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(test)
 
 clean:
 	@$(RM) $(P_OBJ)
+	@make clean --no-print-directory -C $(P_LIBFT)
 	@rm -f valgrind-out.txt
 	@echo All clean.
 
 fclean: clean
 	@$(RM) $(NAME)
+	@make fclean --no-print-directory -C $(P_LIBFT)
 
 re: fclean all
