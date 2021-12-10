@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/09 00:37:50 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/09 20:13:30 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CC = clang
 RM = rm -rf
 RMR = rm -rf
 NAME = push_swap
-CFLAGS = -Wall -Werror -Wextra -I ./include/ -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -I ./include/ #-g -fsanitize=address
 
 all: $(NAME)
 
