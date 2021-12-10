@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/09 20:13:30 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/10 02:01:09 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,12 @@ $(P_OBJ)%.o: $(P_SRC)%.c
 	@mkdir -p $(P_OBJ)utils/movements
 	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
+val:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./push_swap 3 2 0
+
 clean:
 	@$(RM) $(P_OBJ)
+	@rm -f valgrind-out.txt
 	@echo All clean.
 
 fclean: clean
