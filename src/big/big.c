@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:58:21 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/09 01:10:45 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/10 07:16:13 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	check_swap(t_ps *ps, int bigf_chunk)
 	int	half;
 
 	half = (ps->size_stack_a / 2);
+	find_min(ps, bigf_chunk);
 	ps->hold_second = get_number(ps, bigf_chunk);
 	if (ps->first_position <= half - (ps->last_position - half))
 		parse_to_send(ps);

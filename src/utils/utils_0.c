@@ -16,7 +16,7 @@ t_node	*new_node(int numb)
 {
 	t_node	*new;
 
-	new = (t_node *)malloc(sizeof(t_node));
+	new = (t_node *)ft_calloc(1, sizeof(t_node));
 	if (new == NULL)
 		exit(1);
 	new->next = NULL;

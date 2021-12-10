@@ -6,7 +6,7 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 20:10:58 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/10 06:48:52 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/10 07:36:41 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,12 @@ LIBFT = $(P_LIBFT)libft.a
 
 NAME = push_swap
 
-CC = clang
+CC = gcc
 RM = rm -rf
 RMR = rm -rf
-CFLAGS = -Wall -Werror -Wextra -I ./include/ #-g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -I ./include/ -g #-fsanitize=address
+
+#valgrind --leak-check=full --show-leak-kinds=all -s --track-origins=yes --log-file=valgrind-out.txt
 
 all: $(NAME)
 
@@ -51,8 +53,6 @@ $(P_OBJ)%.o: $(P_SRC)%.c
 	@mkdir -p $(P_OBJ)utils/movements
 	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
-val:
-	valgrind --leak-check=full --show-leak-kinds=all -s --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME) $(test)
 
 clean:
 	@$(RM) $(P_OBJ)
