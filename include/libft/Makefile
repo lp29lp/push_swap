@@ -6,11 +6,11 @@
 #    By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 15:06:48 by lpaulo-d          #+#    #+#              #
-#    Updated: 2021/12/10 11:09:55 by lpaulo-d         ###   ########.fr        #
+#    Updated: 2021/12/10 11:31:30 by lpaulo-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES = ft_bzero.c ft_strlen.c ft_atoi.c ft_calloc.c ft_putendl_fd.c 
+FILES = ft_bzero.c ft_strlen.c ft_calloc.c ft_putendl_fd.c 
 SRC = $(FILES:.c=.o)
 
 NAME = libft.a

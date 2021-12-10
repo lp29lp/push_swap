@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/10 06:45:01 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/10 11:31:53 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void	find_min(t_ps *ps, int bigf_chunk);
 void	parse_to_send(t_ps *ps);
 void	check_send(t_ps *ps, int big);
 void	check_support(t_ps *ps, int cont, int min);
+int		ft_atoi(const char *nptr, t_ps *ps);
 
 #endif
