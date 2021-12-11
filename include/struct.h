@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 06:40:50 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/10 06:42:10 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/11 01:21:32 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_ps
 	int		top;
 	int		min;
 	int		max;
-	int		next_min;
 	int		first;
 	int		last;
 	int		c_chunk;

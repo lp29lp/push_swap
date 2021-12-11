@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:58:21 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/10 07:16:13 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/11 01:31:58 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	big_stack(t_ps *ps)
 	back_to_a(ps);
 }
 
+//decide which movement is better
 void	check_swap(t_ps *ps, int bigf_chunk)
 {
 	int	half;
@@ -52,6 +53,7 @@ void	check_swap(t_ps *ps, int bigf_chunk)
 	return ;
 }
 
+//get bigger number but less than bigf_chunk "inside chunk" + position
 int	get_number(t_ps *ps, int bigf_chunk)
 {
 	t_node	*aux;
@@ -77,6 +79,7 @@ int	get_number(t_ps *ps, int bigf_chunk)
 	return (num);
 }
 
+//find 25th bigger number inside chunk(25)
 int	f_chunk(t_ps *ps)
 {
 	t_node	*temp;

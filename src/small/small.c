@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 06:05:55 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/09 01:08:11 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/11 01:23:08 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	three_numbers(t_ps *ps)
 		move_ra(ps);
 }
 
+//move big and min for stack b
 void	four_numbers(t_ps *ps)
 {
 	int		min;
@@ -67,7 +68,6 @@ void	five_numbers(t_ps *ps)
 
 	ps->min = get_min(ps);
 	ps->max = get_max(ps, 0);
-	ps->next_min = get_nextmin(ps);
 	five_cont_one(ps);
 	three_numbers(ps);
 	temp = ps->stack_b;

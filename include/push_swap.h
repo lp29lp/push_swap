@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 09:20:10 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/10 11:31:53 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/11 02:12:15 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int		get_min(t_ps *ps);
 int		get_max(t_ps *ps, int i);
 void	four_numbers(t_ps *ps);
 void	get_three(t_ps *ps);
-int		get_nextmin(t_ps *ps);
 void	five_cont_one(t_ps *ps);
 void	five_cont_two(t_ps *ps, t_node *temp);
 void	five_numbers(t_ps *ps);

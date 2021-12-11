@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 17:41:14 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/09 01:11:31 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/11 01:33:52 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	back_to_a(t_ps *ps)
 	move_pa(ps);
 }
 
+//move "max" to top
 void	check(t_ps *ps, int i)
 {
 	if (i > (ps->size_stack_b / 2))

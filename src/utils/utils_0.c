@@ -12,6 +12,7 @@
 
 #include <push_swap.h>
 
+//calloc to init memory
 t_node	*new_node(int numb)
 {
 	t_node	*new;
@@ -91,18 +92,5 @@ void	free_stack(t_ps *ps)
 		}
 	}
 	free(ps->stack_b);
-	return ;
-}
-
-void	aux_move_pa(t_ps *ps, t_node *new_stack, t_node *aux)
-{
-	free (ps->stack_a);
-	ps->stack_a = new_node(aux->data);
-	ps->stack_b = new_stack;
-	free(aux);
-	aux = NULL;
-	ps->size_stack_b--;
-	ps->size_stack_a++;
-	write(1, "pa\n", 3);
 	return ;
 }

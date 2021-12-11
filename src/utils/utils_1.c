@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 20:17:01 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/10 11:33:18 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/11 01:16:56 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	check_if_complete(t_ps *ps)
 	return (1);
 }
 
+//atoi with stop when overflow
 int	ft_atoi(const char *nptr, t_ps *ps)
 {
 	long	result;

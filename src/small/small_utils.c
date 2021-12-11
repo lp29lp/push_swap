@@ -6,7 +6,7 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 08:32:04 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/09 01:08:29 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/11 01:22:27 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,28 +38,6 @@ int	get_min(t_ps *ps)
 		temp = temp->next;
 	}
 	return (min);
-}
-
-int	get_nextmin(t_ps *ps)
-{
-	t_node	*temp;
-	int		nm;
-	int		bnm;
-
-	temp = ps->stack_a;
-	nm = temp->data;
-	while (temp->next != NULL)
-	{
-		if (nm > temp->next->data)
-		{
-			bnm = nm;
-			nm = temp->next->data;
-			if (nm == ps->min)
-				nm = bnm;
-		}
-		temp = temp->next;
-	}
-	return (nm);
 }
 
 int	get_max(t_ps *ps, int i)

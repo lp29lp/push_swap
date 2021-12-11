@@ -6,12 +6,13 @@
 /*   By: lpaulo-d <lpaulo-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:48:27 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2021/12/09 01:11:24 by lpaulo-d         ###   ########.fr       */
+/*   Updated: 2021/12/11 01:30:59 by lpaulo-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
+//find number smallest number than bigf_chunk
 void	find_min(t_ps *ps, int bigf_chunk)
 {
 	t_node	*temp;
